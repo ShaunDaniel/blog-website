@@ -1,0 +1,13 @@
+<%- include('./partials/header.ejs') %>
+<h2>Compose a new note</h2>
+<form action="/compose" method="post">
+        <div class="form-group">
+            <label for="new-note">
+                Note Body
+            </label>
+            <textarea class="form-control" id="new-note" rows="5">
+            </textarea>
+            <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
+        </div>
+</form>
+<%- include('./partials/footer.ejs') %>

@@ -1,4 +1,10 @@
 <%- include('./partials/header.ejs') %>
+
 <h1>Home</h1>
-<p><%= hometext %></p>
+<p> Welcome to your daily journal!</p>
+<hr class="border border-2 ">
+<% posts.forEach(post => { %>
+    <h2 class="mt-4"><%=  post.note_title %></h2>
+    <p><%=  post.note_body %></p>
+<% });%>   
 <%- include('./partials/footer.ejs') %>

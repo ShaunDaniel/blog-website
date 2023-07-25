@@ -4,6 +4,7 @@ import ejs from "ejs"
 
 const app = express()
 const port = 3000
+let posts = []
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.set('view engine','ejs')
@@ -17,7 +18,7 @@ const contactContent = "Duis sed auctor velit, in hendrerit eros. Integer egesta
 
 app.get("/",(req,res)=>{
     res.render("home.ejs",{
-        hometext:homeStartingContent
+        posts:posts
     })
 })
 
@@ -36,6 +37,15 @@ app.get("/contact",(req,res)=>{
 app.get("/compose",(req,res)=>{
     res.render("compose.ejs")
 })
+
+app.post("/compose",(req,res)=>{
+    const note = {
+        note_title: req.body["note-title"],
+        note_body: req.body["note-body"]
+    }
+    posts.push(note)
+    res.redirect("/")
+}) 
 
 
 app.listen(port,"192.168.1.11",()=>{

@@ -1,10 +1,18 @@
 <%- include('./partials/header.ejs') %>
 
 <h1>Home</h1>
-<p> Welcome to your daily journal!</p>
-<hr class="border border-2 ">
+<p>Welcome to your daily journal!</p>
+
+<hr class="border border-2" />
+
 <% posts.forEach(post => { %>
-    <h2 class="mt-4"><%=  post.note_title %></h2>
-    <p><%=  post.note_body %></p>
-<% });%>   
-<%- include('./partials/footer.ejs') %>
+    <h2 class="mt-4"><%= post.note_title %></h2>
+<% if(post.note_body.length >100){ %>
+    <p>
+    <%= `${post.note_body.substring(0,100)}...` %>
+    <a href="<%= post.link %>">Read more</a>
+    </p>
+<% } else { %>
+    <p><%= post.note_body %></p>
+
+<% } %> <% });%> <%- include('./partials/footer.ejs') %>

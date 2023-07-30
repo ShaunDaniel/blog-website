@@ -80,6 +80,6 @@ app.get("/posts/:postname", async(req, res) => {
 
 
 
-app.listen(port,"192.168.1.5",()=>{
+app.listen(port,()=>{
     console.log(`Listening on port ${port}`)
 })
